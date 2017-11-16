@@ -6,7 +6,7 @@ export default class MyDateScreen extends Component {
     constructor(props){
       super(props);
       this.state = {
-        me: 'player@player.com',
+        me: 'nate@hotmail.com',
         isLoading: true
       }
     }
@@ -16,7 +16,9 @@ export default class MyDateScreen extends Component {
     };
   
     componentDidMount() {
-      fetch('http://127.0.0.1:8000/date/')
+      URLtofetch='http://127.0.0.1:8000/date?email='.concat(this.state.me)
+      console.log(URLtofetch)
+      fetch(URLtofetch)
       .then((response) => response.json())
       .then((responseJson) => 
       {
@@ -43,7 +45,7 @@ export default class MyDateScreen extends Component {
         //console.log(test_data2)
         this.setState({
           isLoading: false,
-          data: responseJson.potential_dates
+          data: responseJson.my_dates
           //data: test_data[0].movies
           //data: test_data2.potential_dates
         });
