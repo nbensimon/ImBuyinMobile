@@ -15,7 +15,7 @@ const Connection = t.struct({
 
 export default class MakeADateScreen extends Component {
     static navigationOptions = {
-      title: 'Make A Date'
+      title: 'Make A Date!'
     };
     
     handleSubmit = () => {
