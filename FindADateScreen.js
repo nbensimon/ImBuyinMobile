@@ -7,11 +7,14 @@ export default class FindADateScreen extends Component {
         title: 'Find A Date!'
     };
     state = {
+      me: 'nate@hotmail.com',
       isLoading: true
     }
     
     componentDidMount() {
-      fetch('http://127.0.0.1:8000/date/')
+      URLtofetch='http://127.0.0.1:8000/date?email='.concat(this.state.me).concat('&show')
+      console.log(URLtofetch)
+      fetch(URLtofetch)
       .then((response) => response.json())
       .then((responseJson) => 
       {

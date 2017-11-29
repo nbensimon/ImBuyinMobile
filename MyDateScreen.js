@@ -6,7 +6,7 @@ export default class MyDateScreen extends Component {
     constructor(props){
       super(props);
       this.state = {
-        me: 'nate@hotmail.com',
+        me: 'kishore1@hotmail.com',
         isLoading: true
       }
     }
@@ -47,7 +47,7 @@ export default class MyDateScreen extends Component {
             keyExtractor={(item, index) => index}
             renderItem={({item}) => 
             <Text> 
-            {item.where} | {item.when} | {item.interested}
+            {item.where} | {item.when} | {item.interested_user_count}
             </Text>}
           />
         </View>
