@@ -6,6 +6,7 @@ import { StackNavigator } from 'react-navigation';
 import MyDateScreen from './MyDateScreen';
 import MakeADateScreen from './MakeADateScreen';
 import FindADateScreen from './FindADateScreen';
+import ConfirmInterestScreen from './ConfirmInterestScreen';
 
 
 class HomeScreen extends Component {
@@ -36,11 +37,12 @@ class HomeScreen extends Component {
 }
 
 
-const ImBuyinApp = StackNavigator({
+const HomeScreenNavigator = StackNavigator({
   Home: { screen: HomeScreen },
   Make: { screen: MakeADateScreen },
   Find: { screen: FindADateScreen },
-  Mine: { screen: MyDateScreen }
+  Mine: { screen: MyDateScreen },
+  ConfirmInterest: { screen: ConfirmInterestScreen }
 });
 
 
@@ -49,7 +51,7 @@ export default class App extends Component {
     super(props, context);
   }
   render() {
-    return <ImBuyinApp />;
+    return <HomeScreenNavigator />;
   }
 };
 

@@ -4,30 +4,32 @@ import { ActivityIndicator, FlatList, View,
 
 export default class FindADateScreen extends Component {
     static navigationOptions = {
-        title: 'Have Fun!'
+        title: 'Find A Date!'
     };
     state = {
+      me: 'nate@hotmail.com',
       isLoading: true
     }
     
     componentDidMount() {
-      fetch('http://127.0.0.1:8000/date/')
+      URLtofetch='http://127.0.0.1:8000/date?email='.concat(this.state.me).concat('&show')
+      console.log(URLtofetch)
+      fetch(URLtofetch)
       .then((response) => response.json())
       .then((responseJson) => 
       {
-        //console.log(responseJson)
         const test_data2 = 
         {
           "potential_dates": [
             { "user": "kishore@hotmail.com",
-              "date_place": "Cinemark 12",
-              "create_date": "2016-09-23T23:00:00Z",
+              "where": "Cinemark 12",
+              "when": "2016-09-23T23:00:00Z",
               "accepted": false,
               "category": "General"
             },
             { "user": "nate@hotmail.com",
-              "date_place": "BJs",
-              "create_date": "2016-09-23T23:00:00Z",
+              "where": "BJs",
+              "when": "2016-09-23T23:00:00Z",
               "accepted": false,
               "category": "Movie"
             }
@@ -49,6 +51,7 @@ export default class FindADateScreen extends Component {
     }
     
     render() {
+      const { navigate } = this.props.navigation;
       if (this.state.isLoading) {
         return (
           <View style={{flex: 1, paddingTop: 20}}>
@@ -61,10 +64,12 @@ export default class FindADateScreen extends Component {
           
           <FlatList
             data={this.state.data}
-            //data={[{"key": "aasdfasd"}, {"key": "basdfasdf"}]}
             keyExtractor={(item, index) => index}
             renderItem={({item}) => 
-             <Text>{item.user}, {item.date_place}</Text>}
+             <Text onPress={() => navigate('ConfirmInterest', {item: item})}>
+             {item.user} | 
+             {item.where} | 
+             {item.when}</Text>}
           />
         </View>
       );
