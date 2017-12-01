@@ -12,7 +12,7 @@ export default class FindADateScreen extends Component {
     }
     
     componentDidMount() {
-      URLtofetch='http://127.0.0.1:8000/date?email='.concat(this.state.me).concat('&show')
+      URLtofetch='http://10.0.1.140:8000/date?email='.concat(this.state.me).concat('&show')
       console.log(URLtofetch)
       fetch(URLtofetch)
       .then((response) => response.json())
