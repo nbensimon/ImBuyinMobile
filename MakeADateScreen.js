@@ -9,7 +9,7 @@ const Form = t.form.Form;
 const Connection = t.struct({
   email: t.String,
   place: t.String,
-  category: t.String,
+  cost: t.String,
   when: t.Date
 });  
 
@@ -32,8 +32,8 @@ export default class MakeADateScreen extends Component {
             email: value.email,
             where: value.place,
             when: value.when,
-            category: value.category,
-            accepted: 'False'
+            imbuyin_value: value.cost,
+            matched: 'False'
           })
         })
         navigate('Find')
