@@ -22,7 +22,7 @@ export default class MakeADateScreen extends Component {
       const { navigate } = this.props.navigation;
       const value = this.refs.form.getValue(); // use that ref to get the form value
       if (value != null) { // if validation fails, value will be null
-        fetch('http://10.0.1.140:8000/date/', {
+        fetch('http://127.0.0.1:8000/date/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -30,7 +30,7 @@ export default class MakeADateScreen extends Component {
           },
           body: JSON.stringify({
             email: value.email,
-            place: value.place,
+            where: value.place,
             when: value.when,
             category: value.category,
             accepted: 'False'
